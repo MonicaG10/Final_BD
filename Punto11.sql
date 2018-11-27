@@ -23,9 +23,8 @@ divisible_sum_pairs(k,Enteros);
 END;
 
 /
-
---PUNTO 3
-create or replace Function find_digits  (n in integer, d in integer , resultado out integer) 
+--PUNTO 2
+create or replace Function find_digits(n in integer, d in integer, resultado out integer) 
 return integer as
     n integer;
     aux integer;
@@ -60,3 +59,28 @@ begin
 find_digits(n,d);
 dbms_output.put_line('resultado: ' || resultado);
 end;
+/
+-- punto 3
+create table digits (n integer, pairs integer);
+
+create  or replace procedure CALCULATE_FIND_DIGITS() as
+resultado number;
+begin
+DECLARE 
+    CURSOR DIGITO 
+    IS
+    SELECT N, pairs
+    FROM  digits; 
+    N integer;
+    P integer;
+BEGIN
+    OPEN DIGITO;
+    LOOP
+        FETCH DIGITO INTO N,P;
+        EXIT WHEN N/N=0 ;
+        
+    END LOOP; 
+    CLOSE DIGITO;
+END;
+END;
+/
