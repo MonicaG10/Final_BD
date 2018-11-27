@@ -1,5 +1,4 @@
 --PUNTO 1
-
 CREATE TYPE number_array AS VARRAY(100) OF INTEGER;
 
 --Se crea la función
@@ -8,7 +7,7 @@ RETURN INTEGER AS
 resultado number;
 BEGIN
     IF (1<=K<=100) THEN 
-    --
+    -- cuerpo
     ELSE
     END IF;
 return resultado;
@@ -77,8 +76,7 @@ BEGIN
     OPEN DIGITO;
     LOOP
         FETCH DIGITO INTO N,P;
-        EXIT WHEN N/N=0 ;
-        
+        EXIT WHEN find_digits(N,P);        
     END LOOP; 
     CLOSE DIGITO;
 END;
